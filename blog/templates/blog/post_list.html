@@ -9,16 +9,12 @@
             <h1><a href="/">Calvin's Blog using Django</a></h1>
         </div>
 
-        <div>
-            <p>published: 2.10.2019, 12:14</p>
-            <h2><a href="">My first post</a></h2>
-            <p>This is my first post for the Django tutorial</p>
-        </div>
-
-         <div>
-            <p>published: 2.10.2019, 12:14</p>
-            <h2><a href="">My second post</a></h2>
-            <p>This is my second post for the Django tutorial</p>
-        </div>
+       {% for post in posts %}
+            <div>
+             <p>published: {{ post.published_date }}</p>
+            <h2><a href="">{{ post.title }}</a></h2>
+            <p>{{ post.text|linebreaksbr }}</p>
+            </div>
+        {% endfor %}
 </body>
 </html>
